@@ -43,14 +43,15 @@ Setup Tutorial: https://code.visualstudio.com/docs/remote/wsl-tutorial
 
 Refer Documentation: https://github.com/AcademySoftwareFoundation/openvdb
 Refer Documentation: https://www.openvdb.org/documentation/doxygen/build.html
-
+```bash
 cd C:/src/vcpkg
 git clone https://github.com/microsoft/vcpkg.git
 cd vcpkg
 .\bootstrap-vcpkg.bat
+```
+add vcpkg to PATH for windows so the following programs can run
 
-add vcpkg to PATH
-
+```bash
 vcpkg install zlib:x64-windows blosc:x64-windows tbb:x64-windows boost-iostreams:x64-windows boost-any:x64-windows boost-algorithm:x64-windows boost-interprocess:x64-windows boost:x64-windows openexr:x64-windows ilmbase:x64-windows pybind11:x64-windows glew:x64-windows eigen3:x64-windows gsl:x64-windows
 git clone git@github.com:AcademySoftwareFoundation/openvdb.git
 cd openvdb
@@ -58,4 +59,9 @@ mkdir build
 cd build
 cmake -DCMAKE_TOOLCHAIN_FILE=C:/src/vcpkg/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET=x64-windows -A x64 -DOPENVDB_BUILD_PYTHON_MODULE=ON ..
 cmake --build . --parallel 4 --config Release --target install
+```
+
+The Puthon .pyb file is located in the following inside the installed openPYB folder: C:\Program Files\OpenVDB\lib\python3.11\site-packages\pyopenvdb.cp311-win_amd64.pyd
+
+
 
